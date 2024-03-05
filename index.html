@@ -38,7 +38,7 @@
             <h2>Live  Lottery Result Live</h2>
         </marquee>
         
-        <table>
+        <table id="lotteryTable">
             <thead>
                 <tr>
                     <th>Lottery No</th>
@@ -210,5 +210,53 @@
     
 
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        var table = document.getElementById("lotteryTable");
+        var rows = table.querySelectorAll("tbody tr");
+        var currentPage = 0;
+        var rowsPerPage = 10;
+        var totalPages = Math.ceil(rows.length / rowsPerPage);
+    
+        // Show the rows for the current page
+        function showRowsForPage(page) {
+            var startIndex = page * rowsPerPage;
+            var endIndex = startIndex + rowsPerPage;
+    
+            rows.forEach(function(row, index) {
+                row.style.display = (index >= startIndex && index < endIndex) ? "table-row" : "none";
+            });
+        }
+    
+        // Show the initial page
+        showRowsForPage(currentPage);
+    
+        // Update pagination buttons
+        function updatePaginationButtons() {
+            document.getElementById("prevPageButton").disabled = currentPage === 0;
+            document.getElementById("nextPageButton").disabled = currentPage === totalPages - 1;
+        }
+    
+        // Event listener for Next Page button
+        document.getElementById("nextPageButton").addEventListener("click", function() {
+            if (currentPage < totalPages - 1) {
+                currentPage++;
+                showRowsForPage(currentPage);
+                updatePaginationButtons();
+            }
+        });
+    
+        // Event listener for Previous Page button
+        document.getElementById("prevPageButton").addEventListener("click", function() {
+            if (currentPage > 0) {
+                currentPage--;
+                showRowsForPage(currentPage);
+                updatePaginationButtons();
+            }
+        });
+    });
+    
+    </script>
 </body>
 </html>
