@@ -1,0 +1,71 @@
+h1, h2 {
+    color: green;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.result {
+    margin-bottom: 20px;
+}
+
+.prize {
+    font-size: 24px;
+    font-weight: bold;
+    color: green;
+    margin-bottom: 10px;
+}
+
+.amount {
+    font-size: 28px;
+    font-weight: bold;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.numbers, .number {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+    word-spacing: 10px;
+    line-height: 1.5;
+}
+
+.consolation {
+    font-size: 24px;
+    font-weight: bold;
+    color: orange;
+}
+
+@media only screen and (max-width: 1024px) {
+    .container {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .prize {
+        font-size: 20px;
+    }
+
+    .amount {
+        font-size: 24px;
+    }
+
+    .numbers {
+        font-size: 18px;
+    }
+
+    .consolation {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+}
